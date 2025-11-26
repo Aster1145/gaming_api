@@ -10,7 +10,6 @@ const Gamingschema = new mongoose.Schema(
 
         score : {
             type: Number,
-            required : [true, "Please provide the score"],
             default : 0,
             min : [0, "Score cannot be negative"]
         },

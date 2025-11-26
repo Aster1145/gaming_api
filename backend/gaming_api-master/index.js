@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const { PORT, MONGODB_URI }  = require('./config/env.js');
 const gamesRoutes = require('./routes/games.routes.js');
 const userRoutes = require('./routes/user.routes.js');
+const cors = require('cors');
 
 
 const app = express();
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,7 +16,7 @@ app.use('/api/games',gamesRoutes);
 app.use('/api/users',userRoutes);
 
 app.get('/', (req, res) => {
-  res.send("Welcomw to gaming API")
+  res.send("Welcome to gaming API")
 });
 
 
